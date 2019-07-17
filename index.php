@@ -9,7 +9,9 @@ use Aws\Ssm\SsmClient;
 
 $client = new SsmClient([
     'version' => 'latest',
-    'region' => 'eu-west-1',
+    'region' => 'us-east-1',
+    'scheme' => 'https',
+    'ssl.certificate_authority' => __DIR__ . '/cacert.pem',
 ]);
 
 $servernameRaw = $client->getParameters([
