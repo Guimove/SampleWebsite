@@ -11,7 +11,7 @@ $client = new SsmClient([
     'version' => 'latest',
     'region' => 'us-east-1',
     'scheme' => 'https',
-    'ssl.certificate_authority' => __DIR__ . '/cacert.pem',
+    'ssl.certificate_authority' => dirname(__FILE__) . '/cacert.pem',
 ]);
 
 $servernameRaw = $client->getParameters([
