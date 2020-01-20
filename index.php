@@ -9,9 +9,9 @@ use Aws\Ssm\SsmClient;
 
 $client = new SsmClient([
     'version' => 'latest',
-    'region' => 'us-east-1',
+    'region' => 'eu-west-1',
     'scheme' => 'https',
-    'ssl.certificate_authority' => dirname(__FILE__) . '/cacert.pem',
+    'ssl.certificate_authority' => dirname(__FILE__) . '\cacert.pem',
 ]);
 
 $servernameRaw = $client->getParameters([
@@ -104,7 +104,7 @@ while ($row = $result->fetch(PDO::FETCH_ASSOC)) {
     $country = $row['name'];
 }
 
-$instance_id = file_get_contents("http://instance-data/latest/meta-data/instance-id");
+$instance_id = file_get_contents("http://169.254.169.254/latest/meta-data/instance-id");
 
 ?>
 
